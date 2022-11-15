@@ -10,9 +10,13 @@ import android.os.Build
 import android.os.Handler
 import android.speech.RecognizerIntent
 import android.text.TextUtils
+import android.util.Log
 import android.view.Window
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
+import com.stonly.stonly.Stonly
+import com.stonly.stonly.StonlyListener
+import com.stonly.stonly.core.ui.widget.ExternalAppScheme
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.internal.functions.Functions
 import io.reactivex.rxjava3.plugins.RxJavaPlugins
@@ -145,6 +149,18 @@ class WikipediaApp : Application() {
         }
     }
 
+    private val stonlyListener = object : StonlyListener {
+        override fun openExternalApp(scheme: ExternalAppScheme) {
+            Log.d("App", "scheme: $scheme")
+        }
+
+        override fun onLostNetwork() {
+            Log.d("App", "onLostNetwork")
+        }
+    }
+
+    var stonly: Stonly? = null
+
     init {
         instance = this
     }
@@ -152,6 +168,9 @@ class WikipediaApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
+        stonly = Stonly(getString(R.string.stonly_key), this).apply {
+            setListener(stonlyListener)
+        }
         WikiSite.setDefaultBaseUrl(Prefs.mediaWikiBaseUrl)
 
         // Register here rather than in AndroidManifest.xml so that we can target Android N.

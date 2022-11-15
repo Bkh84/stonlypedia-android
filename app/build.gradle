@@ -115,29 +115,42 @@ android {
             def TEST_LOGIN_PASSWORD = System.getenv('TEST_LOGIN_PASSWORD')
             buildConfigField "String", "TEST_LOGIN_USERNAME", TEST_LOGIN_USERNAME != null ? "\"${TEST_LOGIN_USERNAME}\"" : '"Foo"'
             buildConfigField "String", "TEST_LOGIN_PASSWORD", TEST_LOGIN_PASSWORD != null ? "\"${TEST_LOGIN_PASSWORD}\"" : '"Bar"'
+
+            resValue "string", "stonly_key", "9b4f9dd5-d306-11e9-a307-06e18af4fc90"
+            resValue "string", "stonly_scheme", "stonly-txvohjssoq"
         }
         prod {
             versionName computeVersionName(defaultConfig.versionCode, 'r')
             signingConfig signingConfigs.prod
+            resValue "string", "stonly_key", "0041028e-a25b-11e9-a307-06e18af4fc90"
+            resValue "string", "stonly_scheme", "stonly-am7lksx0an"
         }
         alpha {
             versionName computeVersionName(defaultConfig.versionCode, 'alpha')
             applicationIdSuffix '.alpha'
+            resValue "string", "stonly_key", "0041028e-a25b-11e9-a307-06e18af4fc90"
+            resValue "string", "stonly_scheme", "stonly-am7lksx0an"
         }
         beta {
             versionName computeVersionName(defaultConfig.versionCode, 'beta')
             applicationIdSuffix '.beta'
             signingConfig signingConfigs.prod
+            resValue "string", "stonly_key", "0041028e-a25b-11e9-a307-06e18af4fc90"
+            resValue "string", "stonly_scheme", "stonly-am7lksx0an"
         }
         fdroid {
             versionName computeVersionName(defaultConfig.versionCode, 'fdroid')
             signingConfig signingConfigs.prod
+            resValue "string", "stonly_key", "0041028e-a25b-11e9-a307-06e18af4fc90"
+            resValue "string", "stonly_scheme", "stonly-am7lksx0an"
         }
         custom {
             versionName computeVersionName(defaultConfig.versionCode, customChannel)
             // next line is for injecting a custom channel value into the custom/AndroidManifest.xml
             manifestPlaceholders = [customChannel:getProperty('customChannel').toString()]
             signingConfig signingConfigs.prod
+            resValue "string", "stonly_key", "0041028e-a25b-11e9-a307-06e18af4fc90"
+            resValue "string", "stonly_scheme", "stonly-am7lksx0an"
         }
     }
 
@@ -264,6 +277,8 @@ dependencies {
     androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
     androidTestImplementation "android.arch.persistence.room:testing:1.1.1"
     androidTestUtil 'androidx.test:orchestrator:1.4.1'
+
+    implementation project(path: ':stonly')
 }
 
 private setSigningConfigKey(config, Properties props) {
