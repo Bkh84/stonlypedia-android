@@ -117,7 +117,7 @@ android {
             buildConfigField "String", "TEST_LOGIN_PASSWORD", TEST_LOGIN_PASSWORD != null ? "\"${TEST_LOGIN_PASSWORD}\"" : '"Bar"'
 
             resValue "string", "stonly_key", "9b4f9dd5-d306-11e9-a307-06e18af4fc90"
-            resValue "string", "stonly_scheme", "stonly-txvohjssoq"
+            resValue "string", "stonly_scheme", "stonly-femwjoivfn"
         }
         prod {
             versionName computeVersionName(defaultConfig.versionCode, 'r')
