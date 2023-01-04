@@ -15,6 +15,7 @@ import android.view.Window
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
 import com.stonly.stonly.Stonly
+import com.stonly.stonly.Stonly.setListener
 import com.stonly.stonly.StonlyListener
 import com.stonly.stonly.core.ui.widget.ExternalAppScheme
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -159,8 +160,6 @@ class WikipediaApp : Application() {
         }
     }
 
-    var stonly: Stonly? = null
-
     init {
         instance = this
     }
@@ -168,7 +167,7 @@ class WikipediaApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        stonly = Stonly(getString(R.string.stonly_key), this).apply {
+        Stonly.setWidgetId(getString(R.string.stonly_key), this).apply {
             setListener(stonlyListener)
         }
         WikiSite.setDefaultBaseUrl(Prefs.mediaWikiBaseUrl)
