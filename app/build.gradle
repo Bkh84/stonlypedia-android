@@ -122,26 +122,26 @@ android {
         prod {
             versionName computeVersionName(defaultConfig.versionCode, 'r')
             signingConfig signingConfigs.prod
-            resValue "string", "stonly_key", "0041028e-a25b-11e9-a307-06e18af4fc90"
+            resValue "string", "stonly_key", "9b4f9dd5-d306-11e9-a307-06e18af4fc90"
             resValue "string", "stonly_scheme", "stonly-am7lksx0an"
         }
         alpha {
             versionName computeVersionName(defaultConfig.versionCode, 'alpha')
             applicationIdSuffix '.alpha'
-            resValue "string", "stonly_key", "0041028e-a25b-11e9-a307-06e18af4fc90"
+            resValue "string", "stonly_key", "9b4f9dd5-d306-11e9-a307-06e18af4fc90"
             resValue "string", "stonly_scheme", "stonly-am7lksx0an"
         }
         beta {
             versionName computeVersionName(defaultConfig.versionCode, 'beta')
             applicationIdSuffix '.beta'
             signingConfig signingConfigs.prod
-            resValue "string", "stonly_key", "0041028e-a25b-11e9-a307-06e18af4fc90"
+            resValue "string", "stonly_key", "9b4f9dd5-d306-11e9-a307-06e18af4fc90"
             resValue "string", "stonly_scheme", "stonly-am7lksx0an"
         }
         fdroid {
             versionName computeVersionName(defaultConfig.versionCode, 'fdroid')
             signingConfig signingConfigs.prod
-            resValue "string", "stonly_key", "0041028e-a25b-11e9-a307-06e18af4fc90"
+            resValue "string", "stonly_key", "9b4f9dd5-d306-11e9-a307-06e18af4fc90"
             resValue "string", "stonly_scheme", "stonly-am7lksx0an"
         }
         custom {
@@ -149,7 +149,7 @@ android {
             // next line is for injecting a custom channel value into the custom/AndroidManifest.xml
             manifestPlaceholders = [customChannel:getProperty('customChannel').toString()]
             signingConfig signingConfigs.prod
-            resValue "string", "stonly_key", "0041028e-a25b-11e9-a307-06e18af4fc90"
+            resValue "string", "stonly_key", "9b4f9dd5-d306-11e9-a307-06e18af4fc90"
             resValue "string", "stonly_scheme", "stonly-am7lksx0an"
         }
     }

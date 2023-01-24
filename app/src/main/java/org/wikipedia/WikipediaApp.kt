@@ -15,6 +15,7 @@ import android.view.Window
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
 import com.stonly.stonly.Stonly
+import com.stonly.stonly.Stonly.setListener
 import com.stonly.stonly.StonlyListener
 import com.stonly.stonly.core.ui.widget.ExternalAppScheme
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -165,8 +166,10 @@ class WikipediaApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        Stonly.setWidgetId(getString(R.string.stonly_key), this)
-        Stonly.tracker.identify("remy1")
+
+        Stonly.setWidgetId(getString(R.string.stonly_key), this).apply {
+            setListener(stonlyListener)
+        }
         WikiSite.setDefaultBaseUrl(Prefs.mediaWikiBaseUrl)
 
         // Register here rather than in AndroidManifest.xml so that we can target Android N.
