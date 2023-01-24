@@ -14,7 +14,7 @@ final Properties PROD_PROPS = loadProperties(PROD_PROPS_FILE)
 final Properties REPO_PROPS = loadProperties(REPO_PROPS_FILE)
 
 static def computeVersionName(versionCode, label) {
-    return "1.0.0"
+    return "0.1.14"
 }
 
 final JavaVersion JAVA_VERSION = JavaVersion.VERSION_1_8
@@ -116,8 +116,8 @@ android {
             buildConfigField "String", "TEST_LOGIN_USERNAME", TEST_LOGIN_USERNAME != null ? "\"${TEST_LOGIN_USERNAME}\"" : '"Foo"'
             buildConfigField "String", "TEST_LOGIN_PASSWORD", TEST_LOGIN_PASSWORD != null ? "\"${TEST_LOGIN_PASSWORD}\"" : '"Bar"'
 
-            resValue "string", "stonly_key", "9b4f9dd5-d306-11e9-a307-06e18af4fc90"
-            resValue "string", "stonly_scheme", "stonly-7sjtzyzobj"
+            resValue "string", "stonly_key", "d5d69173-f883-11ec-9fb8-0ae9fa2a18a2"
+            resValue "string", "stonly_scheme", "stonly-tdpzyj2guc"
         }
         prod {
             versionName computeVersionName(defaultConfig.versionCode, 'r')
@@ -135,8 +135,8 @@ android {
             versionName computeVersionName(defaultConfig.versionCode, 'beta')
             applicationIdSuffix '.beta'
             signingConfig signingConfigs.prod
-            resValue "string", "stonly_key", "9b4f9dd5-d306-11e9-a307-06e18af4fc90"
-            resValue "string", "stonly_scheme", "stonly-am7lksx0an"
+            resValue "string", "stonly_key", "4a62f158-9efd-11e9-a307-06e18af4fc90"
+            resValue "string", "stonly_scheme", "stonly-a4snqwdc1b"
         }
         fdroid {
             versionName computeVersionName(defaultConfig.versionCode, 'fdroid')
@@ -277,8 +277,9 @@ dependencies {
     androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
     androidTestImplementation "android.arch.persistence.room:testing:1.1.1"
     androidTestUtil 'androidx.test:orchestrator:1.4.1'
-    //implementation 'com.github.StonlyHQ:stonly-android-sdk:v0.1.8'
 
+    devImplementation 'com.github.StonlyHQ:stonly-android-sdk:v0.1.14'
+    betaImplementation project(path: ':stonly')
 }
 
 private setSigningConfigKey(config, Properties props) {
