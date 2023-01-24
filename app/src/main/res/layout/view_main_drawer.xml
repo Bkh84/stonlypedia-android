@@ -138,6 +138,26 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/main_drawer_stonly_settings_container"
+        style="@style/SideDrawerMenuItem">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/ic_settings_black_24dp"
+            app:tint="?attr/material_theme_secondary_color" />
+
+        <TextView
+            style="@android:style/TextAppearance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_weight="1"
+            android:text="Stonly settings" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/main_drawer_donate_container"
         style="@style/SideDrawerMenuItem">
 

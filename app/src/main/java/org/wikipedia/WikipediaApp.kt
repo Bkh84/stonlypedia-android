@@ -159,18 +159,14 @@ class WikipediaApp : Application() {
         }
     }
 
-    var stonly: Stonly? = null
-
     init {
         instance = this
     }
 
     override fun onCreate() {
         super.onCreate()
-
-        stonly = Stonly(getString(R.string.stonly_key), this).apply {
-            setListener(stonlyListener)
-        }
+        Stonly.setWidgetId(getString(R.string.stonly_key), this)
+        Stonly.tracker.identify("remy1")
         WikiSite.setDefaultBaseUrl(Prefs.mediaWikiBaseUrl)
 
         // Register here rather than in AndroidManifest.xml so that we can target Android N.

@@ -28,6 +28,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         fun settingsClick()
         fun watchlistClick()
         fun contribsClick()
+        fun stonlySettingsClick()
     }
 
     private var _binding: ViewMainDrawerBinding? = null
@@ -61,6 +62,11 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         binding.mainDrawerSettingsContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerSettingsContainer)
             callback()?.settingsClick()
+            dismiss()
+        }
+
+        binding.mainDrawerStonlySettingsContainer.setOnClickListener {
+            callback()?.stonlySettingsClick()
             dismiss()
         }
 

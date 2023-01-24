@@ -20,6 +20,7 @@ import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
+import com.stonly.stonly.Stonly
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
 import org.wikipedia.BackPressedHandler
@@ -468,6 +469,10 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         if (AccountUtil.isLoggedIn) {
             startActivity(UserContribListActivity.newIntent(requireActivity(), AccountUtil.userName.orEmpty()))
         }
+    }
+
+    override fun stonlySettingsClick() {
+//        Stonly.openStonlySettings()
     }
 
     fun setBottomNavVisible(visible: Boolean) {
