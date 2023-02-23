@@ -16,6 +16,7 @@ import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
 import com.stonly.stonly.Stonly
 import com.stonly.stonly.Stonly.setListener
+import com.stonly.stonly.StonlyEvent
 import com.stonly.stonly.StonlyListener
 import com.stonly.stonly.core.ui.widget.ExternalAppScheme
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -151,12 +152,7 @@ class WikipediaApp : Application() {
     }
 
     private val stonlyListener = object : StonlyListener {
-        override fun openExternalApp(scheme: ExternalAppScheme) {
-            Log.d("App", "scheme: $scheme")
-        }
-
-        override fun onLostNetwork() {
-            Log.d("App", "onLostNetwork")
+        override fun onStonlyEvent(event: StonlyEvent, extras: Any?) {
         }
     }
 
