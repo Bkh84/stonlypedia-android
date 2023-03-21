@@ -164,7 +164,7 @@ class WikipediaApp : Application() {
         super.onCreate()
 
         Stonly.setWidgetId(getString(R.string.stonly_key), this).apply {
-            setListener(stonlyListener)
+//            setListener(stonlyListener)
         }
         WikiSite.setDefaultBaseUrl(Prefs.mediaWikiBaseUrl)
 

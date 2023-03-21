@@ -50,6 +50,10 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         supportActionBar?.title = ""
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
         binding.mainToolbar.navigationIcon = null
+//        binding.fab.setOnClickListener {
+//            Stonly.openKnowledgeBase("10971",123198, this)
+////            Stonly.openGuidedTour("TEjvm3gPLB",1081598, this)
+//        }
     }
 
     override fun onResume() {

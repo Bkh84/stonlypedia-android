@@ -97,6 +97,12 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:scheme="@string/stonly_scheme"/>
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="stonly-xu4rbbam6z"/>
+            </intent-filter>
         </activity>
         <activity
             android:name=".page.PageActivity"

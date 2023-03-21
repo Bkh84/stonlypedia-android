@@ -12,6 +12,8 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
         classpath "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin:$kotlin_version-1.0.6"
         classpath 'com.google.gms:google-services:4.3.14'  // Google Services plugin
+        classpath "com.karumi:shot:5.13.0"
+
     }
 }
 
